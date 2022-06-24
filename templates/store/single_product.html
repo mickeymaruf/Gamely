@@ -1,0 +1,17 @@
+<div>
+    <h1>Single Product</h1><hr>
+    {% include 'includes/navbar.html' %}
+</div><br>
+
+<div style="border: 1px solid #333; display:inline-block;padding: 0.5rem;">
+    <div>
+        <div><img width="500px" src="{{product.image.url}}"></div>
+        <div>{{product.name}}</div>
+        <div>{{product.price}}$</div>
+        {% if in_cart %}
+        <a href="{% url 'cart' %}">Added to Cart &check;</a>
+        {% else %}
+        <a href="{% url 'add_cart' product.id %}">Add to Cart +</a>
+        {% endif %}
+    </div>
+</div>

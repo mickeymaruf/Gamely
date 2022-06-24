@@ -1,1 +1,16 @@
-Home
+<div>
+    <h1>HOME</h1><hr>
+    {% include 'includes/navbar.html' %}
+</div><br>
+
+
+{% for product in products %}
+<div style="border: 1px solid #333; display:inline-block;padding: 0.5rem;">
+    <a href="{{product.single_product_url}}">
+        <div><img width="200px" src="{{product.image.url}}"></div>
+        <div>{{product.name}}</div>
+        <div>{{product.price}}$</div>
+        <a href="{% url 'add_cart' product.id %}">Add to Cart</a>
+    </a>
+</div>
+{% endfor %}

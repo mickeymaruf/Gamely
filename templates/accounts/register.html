@@ -1,0 +1,40 @@
+<div>
+    <h1>Register</h1><hr>
+    {% include 'includes/navbar.html' %}
+</div><br>
+
+<table style="width:500px;margin:0 auto;border:1px solid #000;padding:2rem;">
+    <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+        {{form.email.errors}}
+        {{form.non_field_errors}}
+        <tr>
+            <td>First Name:</td>
+            <td>{{form.first_name}}</td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td>{{form.last_name}}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{form.email}}</td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td>{{form.username}}</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>{{form.password}}</td>
+        </tr>
+        <tr>
+            <td>Repeat Password:</td>
+            <td>{{form.confirm_password}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit">Register</button></td>
+        </tr>
+    </form>
+</table>

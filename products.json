@@ -1,0 +1,98 @@
+[
+{
+    "model": "store.product",
+    "pk": "107d3f84-6a01-43d1-99db-58e6c90ec1c8",
+    "fields": {
+        "name": "Hip Shoes",
+        "slug": "hip-shoes",
+        "description": "",
+        "price": 1200,
+        "stock": 1,
+        "is_available": true,
+        "image": "images/products/12-1.jpg",
+        "category": 7,
+        "created": "2022-06-09T14:16:22.321Z",
+        "modified": "2022-06-10T11:01:08.310Z"
+    }
+},
+{
+    "model": "store.product",
+    "pk": "47fc37c3-1682-4a46-85eb-c7d655bf2fa4",
+    "fields": {
+        "name": "T-Shirt",
+        "slug": "t-shirt",
+        "description": "",
+        "price": 566,
+        "stock": 12,
+        "is_available": true,
+        "image": "images/products/1_Gfnrg5U.jpg",
+        "category": 4,
+        "created": "2022-06-09T11:20:20.564Z",
+        "modified": "2022-06-10T11:01:02.997Z"
+    }
+},
+{
+    "model": "store.product",
+    "pk": "5291d3d1-afb5-4574-8a2d-f881d463e7a6",
+    "fields": {
+        "name": "Shoes",
+        "slug": "shoes",
+        "description": "",
+        "price": 1899,
+        "stock": 55,
+        "is_available": true,
+        "image": "images/products/12.jpg",
+        "category": 7,
+        "created": "2022-06-09T14:09:51.533Z",
+        "modified": "2022-06-10T11:00:56.580Z"
+    }
+},
+{
+    "model": "store.product",
+    "pk": "52d5fe3d-9842-4fa1-b254-69b60271045d",
+    "fields": {
+        "name": "Bata",
+        "slug": "bata",
+        "description": "",
+        "price": 999,
+        "stock": 6,
+        "is_available": true,
+        "image": "images/products/12-2.jpg",
+        "category": 7,
+        "created": "2022-06-09T14:16:44.413Z",
+        "modified": "2022-06-10T11:00:51.029Z"
+    }
+},
+{
+    "model": "store.product",
+    "pk": "5bdd573c-eae3-4cd6-a329-33c0a1d7c70c",
+    "fields": {
+        "name": "Jacket",
+        "slug": "jacket",
+        "description": "",
+        "price": 1299,
+        "stock": 1,
+        "is_available": true,
+        "image": "images/products/2_OGcfgkg.jpg",
+        "category": 6,
+        "created": "2022-06-09T09:04:13.772Z",
+        "modified": "2022-06-10T11:00:46.791Z"
+    }
+},
+{
+    "model": "store.product",
+    "pk": "c47ba325-6e11-4a3b-8b02-66f0e2cc2784",
+    "fields": {
+        "name": "Jeans",
+        "slug": "jeans",
+        "description": "Nice Jeans",
+        "price": 840,
+        "stock": 12,
+        "is_available": true,
+        "image": "images/products/3.jpg",
+        "category": 5,
+        "created": "2022-06-08T10:48:59Z",
+        "modified": "2022-06-10T11:00:40.573Z"
+    }
+}
+]

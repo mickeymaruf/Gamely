@@ -1,0 +1,23 @@
+<div>
+    <h1>Login</h1><hr>
+    {% include 'includes/navbar.html' %}
+</div><br>
+
+<table style="width:300px;margin:0 auto;border:1px solid #000;padding:2rem;">
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <tr>
+            <td>Email:</td>
+            <td><input name="email" type="email" value="{{email}}"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input name="password" type="password" value="{{password}}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </form>
+</table>
+
