@@ -1,14 +1,31 @@
-<h1>STORE</h1><hr>
-{% include 'includes/navbar.html' %}
-<p>{{products.count}} Items found</p>
+{% extends 'base.html' %}
+{% block content %}
 
-{% for product in products %}
-<div style="border: 1px solid #333; display:inline-block;padding: 0.5rem;">
-    <a href="{{product.single_product_url}}">
-        <div><img width="200px" src="{{product.image.url}}"></div>
-        <div>{{product.name}}</div>
-        <div>{{product.price}}$</div>
-        <a href="{% url 'add_cart' product.id %}">Add to Cart</a>
-    </a>
-</div>
-{% endfor %}
+<!-- products -->
+<section id="products">
+    <div class="container my-5">
+        <!---->
+        {% for category in category_links %}
+        <a style="margin-right:0.5rem" href="{{category.url}}">{{category}}</a>
+        {% endfor %}
+        <!---->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3 class="display-6">Games</h3>
+        </div>
+        <div class="products-items row">
+            {% for product in products %}
+            <div class="col-md-2 mb-3">
+                <div class="product-item">
+                    <img class="product-img" src="{{product.image.url}}" alt="{{product.name}}">
+                    <div class="product-details">
+                        <p>{{product.name}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- products -->
+
+{% endblock content %}

@@ -12,6 +12,8 @@ def store(request, category_slug=None):
         products = Product.objects.filter(category=categories, stock__gt=0, is_available=True)
     else:
         products = Product.objects.filter(stock__gt=0, is_available=True)
+    
+
 
     context = {'products': products}
     return render(request, 'store/store.html', context)
