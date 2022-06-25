@@ -1,5 +1,5 @@
 """
-ASGI config for panda_bazar project.
+ASGI config for Gamely project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'panda_bazar.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Gamely.settings')
 
 application = get_asgi_application()

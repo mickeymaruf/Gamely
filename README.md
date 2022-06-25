@@ -1,5 +1,5 @@
 # Panda-Bazar
-An E-commerce Website
+An E-commerce Game Store
 
 ## Installation
 1. Copy files to your server and configure webserver

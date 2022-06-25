@@ -1,5 +1,5 @@
 """
-WSGI config for panda_bazar project.
+WSGI config for Gamely project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'panda_bazar.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Gamely.settings')
 
 application = get_wsgi_application()
