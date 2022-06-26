@@ -1,0 +1,47 @@
+[
+{
+    "model": "store.category",
+    "pk": 1,
+    "fields": {
+        "category": "Fighiting",
+        "slug": "fighiting",
+        "image": "images/category-images/swords-min.png"
+    }
+},
+{
+    "model": "store.category",
+    "pk": 2,
+    "fields": {
+        "category": "Survival",
+        "slug": "adventure",
+        "image": "images/category-images/bonfire-min.png"
+    }
+},
+{
+    "model": "store.category",
+    "pk": 3,
+    "fields": {
+        "category": "Sports",
+        "slug": "sports",
+        "image": "images/category-images/trophy-min.png"
+    }
+},
+{
+    "model": "store.category",
+    "pk": 4,
+    "fields": {
+        "category": "Simulation",
+        "slug": "simulation",
+        "image": "images/category-images/simulation.png"
+    }
+},
+{
+    "model": "store.category",
+    "pk": 5,
+    "fields": {
+        "category": "Racing",
+        "slug": "racing",
+        "image": "images/category-images/racing-flag-min.png"
+    }
+}
+]

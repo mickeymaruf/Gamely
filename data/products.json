@@ -1,7 +1,7 @@
 [
 {
     "model": "store.product",
-    "pk": "1bea85de-8064-4237-ac45-6f53bbbb5a04",
+    "pk": "01",
     "fields": {
         "name": "NARAKA: BLADEPOINT",
         "slug": "naraka-bladepoint",
@@ -10,14 +10,13 @@
         "stock": 50,
         "is_available": true,
         "image": "images/products/naraka.jpg",
-        "category": 10,
         "created": "2022-06-25T10:18:30.416Z",
         "modified": "2022-06-25T10:18:30.416Z"
     }
 },
 {
     "model": "store.product",
-    "pk": "2b8a18a3-6312-4363-b580-c974f613a1a9",
+    "pk": "02",
     "fields": {
         "name": "Forza Horizon 4",
         "slug": "forza-horizon-4",
@@ -26,14 +25,13 @@
         "stock": 60,
         "is_available": true,
         "image": "images/products/froza.jpg",
-        "category": 9,
         "created": "2022-06-25T10:13:16.437Z",
         "modified": "2022-06-25T10:13:16.437Z"
     }
 },
 {
     "model": "store.product",
-    "pk": "436628e2-c987-4c94-ab23-ca7756e17084",
+    "pk": "03",
     "fields": {
         "name": "Conan Exiles",
         "slug": "conan-exiles",
@@ -42,14 +40,13 @@
         "stock": 10,
         "is_available": true,
         "image": "images/products/Conan_Exiles.jpg",
-        "category": 11,
         "created": "2022-06-25T10:22:21.792Z",
         "modified": "2022-06-25T10:22:21.793Z"
     }
 },
 {
     "model": "store.product",
-    "pk": "54b9136f-51a3-4442-af63-6a3ac5de0b01",
+    "pk": "04",
     "fields": {
         "name": "Microsoft Flight Simulator",
         "slug": "microsoft-flight-simulator",
@@ -58,14 +55,13 @@
         "stock": 55,
         "is_available": true,
         "image": "images/products/microsoft_flight_simulator.jpg",
-        "category": 13,
         "created": "2022-06-25T10:31:40.048Z",
         "modified": "2022-06-25T10:31:40.048Z"
     }
 },
 {
     "model": "store.product",
-    "pk": "5cf8df89-4104-420a-b1b9-f128acd37911",
+    "pk": "05",
     "fields": {
         "name": "Call of Duty: Ghosts",
         "slug": "call-of-duty-ghosts",
@@ -74,14 +70,13 @@
         "stock": 100,
         "is_available": true,
         "image": "images/products/cod.jpg",
-        "category": 8,
         "created": "2022-06-25T10:08:13.705Z",
         "modified": "2022-06-25T10:09:40.385Z"
     }
 },
 {
     "model": "store.product",
-    "pk": "60bfe3a5-0594-43a2-8f1f-ff3947c605ef",
+    "pk": "06",
     "fields": {
         "name": "Shadowrun: Hong Kong",
         "slug": "shadowrun-hong-kong",
@@ -90,14 +85,13 @@
         "stock": 10,
         "is_available": true,
         "image": "images/products/hongkong.jpg",
-        "category": 8,
         "created": "2022-06-25T10:20:39.630Z",
         "modified": "2022-06-25T10:20:39.630Z"
     }
 },
 {
     "model": "store.product",
-    "pk": "62b1bfb3-dcf0-44a0-9040-1f1fab4b7a77",
+    "pk": "07",
     "fields": {
         "name": "MLB The Show 22",
         "slug": "mlb-the-show-22",
@@ -106,14 +100,13 @@
         "stock": 7,
         "is_available": true,
         "image": "images/products/MLB_The_Show_22.jpg",
-        "category": 12,
         "created": "2022-06-25T10:28:24.328Z",
         "modified": "2022-06-25T10:28:24.328Z"
     }
 },
 {
     "model": "store.product",
-    "pk": "6bf8a88c-47e2-42b0-9c2a-42a1b6605f8d",
+    "pk": "08",
     "fields": {
         "name": "PlayerUnknown's Battlegrounds",
         "slug": "playerunknowns-battlegrounds",
@@ -122,14 +115,13 @@
         "stock": 10,
         "is_available": true,
         "image": "images/products/pubg.jpg",
-        "category": 8,
         "created": "2022-06-25T10:15:09.735Z",
         "modified": "2022-06-25T10:15:09.735Z"
     }
 },
 {
     "model": "store.product",
-    "pk": "7198f8a0-3622-438f-bfc7-d57e9ab5293e",
+    "pk": "09",
     "fields": {
         "name": "Fallout 76",
         "slug": "fallout-76",
@@ -138,14 +130,13 @@
         "stock": 100,
         "is_available": true,
         "image": "images/products/fallout.jpg",
-        "category": 8,
         "created": "2022-06-25T10:11:52.372Z",
         "modified": "2022-06-25T10:11:52.372Z"
     }
 },
 {
     "model": "store.product",
-    "pk": "7dce7b3e-7e96-45b8-8eb3-c2b768b1d8a2",
+    "pk": "10",
     "fields": {
         "name": "DayZ",
         "slug": "dayz",
@@ -154,14 +145,13 @@
         "stock": 4,
         "is_available": true,
         "image": "images/products/dayz.jpg",
-        "category": 11,
         "created": "2022-06-25T10:23:33.189Z",
         "modified": "2022-06-25T10:23:33.189Z"
     }
 },
 {
     "model": "store.product",
-    "pk": "9f60a404-d92d-4ba1-8800-33108435c962",
+    "pk": "11",
     "fields": {
         "name": "7 Days to Die",
         "slug": "7-days-to-die",
@@ -170,14 +160,13 @@
         "stock": 4,
         "is_available": true,
         "image": "images/products/7_Days_to_Die.jpg",
-        "category": 13,
         "created": "2022-06-25T10:29:22.846Z",
         "modified": "2022-06-25T10:29:22.847Z"
     }
 },
 {
     "model": "store.product",
-    "pk": "ae664d69-800e-4f13-bf2c-ebe26c494969",
+    "pk": "12",
     "fields": {
         "name": "Halo",
         "slug": "halo",
@@ -186,7 +175,6 @@
         "stock": 500,
         "is_available": true,
         "image": "images/products/halo.jpg",
-        "category": 8,
         "created": "2022-06-25T10:12:32.953Z",
         "modified": "2022-06-25T10:12:32.953Z"
     }

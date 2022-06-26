@@ -1,6 +1,5 @@
 from django.urls import reverse
 from django.db import models
-import uuid
 # Create your models here.
 
 class Product(models.Model):
@@ -11,8 +10,7 @@ class Product(models.Model):
     stock = models.IntegerField()
     is_available = models.BooleanField(default=True)
     image = models.ImageField(upload_to='images/products')
-    category = models.ForeignKey('Category', on_delete=models.SET_NULL, blank=True, null=True,)
-    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    category = models.ForeignKey('Category', on_delete=models.SET_NULL, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
@@ -25,7 +23,7 @@ class Product(models.Model):
 class Category(models.Model):
     category = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
-    description = models.TextField(max_length=200, blank=True)
+    image = models.ImageField(upload_to='images/category-images')
     class Meta:
         verbose_name = "Category"
         verbose_name_plural  = "Categories"
