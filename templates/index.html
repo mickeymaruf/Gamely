@@ -12,12 +12,14 @@
         </div>
         <div class="products-items" id="autoWidth" class="cs-hidden">
             {% for product in products %}
-            <div class="item-a product-item">
-                <img class="product-img" src="{{product.image.url}}" alt="{{product.name}}">
-                <div class="product-details">
-                    <p>{{product.name}}</p>
+            <a href="{% url 'single_product' product.category.slug product.name %}">
+                <div class="item-a product-item">
+                    <img class="product-img" src="{{product.image.url}}" alt="{{product.name}}">
+                    <div class="product-details">
+                        <p>{{product.name}}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
             {% endfor %}
         </div>
     </div>
@@ -38,6 +40,7 @@
                     <div class="card category-item">
                         <small class="category-name">{{category.category}}</small>
                         <img class="cat-image" src="{{category.image.url}}">
+                        <div class="cat-image-layer"></div>
                     </div>
                 </a>
             </div>

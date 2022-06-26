@@ -8,12 +8,13 @@ from carts.views import _cart_id
 
 def store(request, category_slug=None):
     if category_slug != None:
-        categories = get_object_or_404(Category, slug=category_slug)
-        products = Product.objects.filter(category=categories, stock__gt=0, is_available=True)
+        category = get_object_or_404(Category, slug=category_slug)
+        products = Product.objects.filter(category=category, stock__gt=0, is_available=True)
     else:
         products = Product.objects.filter(stock__gt=0, is_available=True)
+        category = None
     
-    context = {'products': products}
+    context = {'products': products, 'category':category}
     return render(request, 'store/store.html', context)
 
 # context processor of category_links
