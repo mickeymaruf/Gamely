@@ -7,3 +7,12 @@ $(document).ready(function() {
         } 
     });  
 });
+$(document).ready(function() {
+    $('#autoWidth-category').lightSlider({
+        autoWidth:true,
+        loop:false,
+        onSliderLoad: function() {
+            $('#autoWidth').removeClass('cS-hidden');
+        } 
+    });  
+});

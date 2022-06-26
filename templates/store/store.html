@@ -4,13 +4,39 @@
 <!-- products -->
 <section id="products">
     <div class="container my-5">
-        <!---->
-        {% for category in category_links %}
-        <a style="margin-right:0.5rem" href="{{category.url}}">{{category}}</a>
-        {% endfor %}
+        <!-- categories -->
+        <section id="categories">
+            <div class="container my-5 ps-0">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="fw-bold">Category</h2>
+                    <a class="btn btn-outline-primary" href="{% url 'store' %}">See all</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 position-relative">
+                        <a href="{% url 'store' %}">
+                            <div class="card category-item">
+                                <small class="category-name">All Games</small>
+                            </div>
+                        </a>
+                    </div>
+                    {% for category in category_links %}
+                    <div class="col-md-2 position-relative">
+                        <a href="{% url 'product_by_catory' category.slug %}">
+                            <div class="card category-item">
+                                <small class="category-name">{{category.category}}</small>
+                                <img class="cat-image" src="{{category.image.url}}">
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- categories -->
+
         <!---->
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3 class="display-6">Games</h3>
+            <h3 class="display-6">All Games</h3>
         </div>
         <div class="products-items row">
             {% for product in products %}

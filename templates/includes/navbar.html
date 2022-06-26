@@ -1,42 +1,34 @@
 <!-- nav -->
-<nav class="navbar navbar-expand-lg border-bottom py-3">
+<nav class="navbar navbar-expand-lg border-bottom py-3 position-relative">
   <div class="container">
-    <a class="navbar-brand fw-bold text-uppercase me-1" href="{% url 'home' %}">Gamely</a><small class="badge bg-secondary">New</small>
+    <a class="navbar-brand fw-bold text-uppercase me-1" href="{% url 'home' %}">Gamely</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- search bar -->
       <form class="d-flex ms-auto">
-        <input class="form-control  border-end-0 rounded-0" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success rounded-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input class="form-control border-end-0 rounded-pill" type="search" placeholder="Search games" aria-label="Search">
       </form>
       <!-- search bar -->
-      <div class="d-flex justify-content-between align-items-center">
-          <div class="text-center">
-              <p>Welcome guest!</p>
-              <a class="border-end pe-1" href="signin.html">Sign In</a>
-              <a href="register.html">Register</a>
-          </div>
-          <a href="" class="ms-5 p-2">
-              <div class="rounded-circle border position-relative cart--div">
-                  <i class="fa fa-shopping-cart"></i>
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                      1
-                  </span>
-              </div>
-          </a>
+      {% if user.is_authenticated %}
+      {% else %}
+      <div class="text-center ms-3">
+          <a class="btn signin-btn" href="{% url 'login' %}">Sign In</a>
       </div>
+      {% endif %}
     </div>
   </div>
 </nav>
 <!-- nav -->
 
-{# messages #}
-{% comment %} {% if messages %}
-<div class="messages" id="messages" style="position:absolute;border:1px solid #000052; background:#FFFFD4;padding:0 0.8rem;left:50%;transform:translateX(-50%);">
+<!-- messages -->
+{% if messages %}
   {% for message in messages %}
-  <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}<span class="cross-flash-msgs {{ message.tags }}" onclick="cancelFlashMessage()" style="text-decoration:none;cursor:pointer;" href="">    ✖</span></p>
+  {% comment %} <div class="alert alert-danger alert-dismissible fade show" role="alert" > {% endcomment %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" style="width:400px;position:absolute;left:50%;transform: translate(-50%, -10%);z-index:1111;">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
   {% endfor %}
-</div>
-{% endif %} {% endcomment %}
+{% endif %}

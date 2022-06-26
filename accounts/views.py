@@ -29,6 +29,7 @@ def register(request):
             email = form.cleaned_data['email']
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
+            
             user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password)
 
             # USER ACTIVATION
@@ -48,7 +49,8 @@ def register(request):
             messages.success(request, "An activation link has been sent to your email!")
             return redirect('login')
         else:
-            messages.error(request, "Error while registration!!")
+            pass
+            # messages.error(request, "Error while registration!!")
     else:
         form = AccountForm()
 

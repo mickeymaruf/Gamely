@@ -27,13 +27,19 @@
 <!-- categories -->
 <section id="categories">
     <div class="container my-5">
-        <div class="row">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="fw-bold">Category</h2>
+            <a class="btn btn-outline-primary" href="{% url 'store' %}">See all</a>
+        </div>
+        <div id="autoWidth-category" class="cs-hidden">
             {% for category in categories %}
-            <div class="col-md-2 position-relative">
-                <div class="card" style="height:100px;width:200px;">
-                    <p class="m-2 mb-1" style="position:absolute;bottom:0;">{{category.category}}</p>
-                    <img style="width:25px;position:absolute;right:0;margin:0.5rem;" class="cat-image" src="{{category.image.url}}" alt="">
-                </div>
+            <div class="item-a position-relative">
+                <a href="{% url 'product_by_catory' category.slug %}">
+                    <div class="card category-item">
+                        <small class="category-name">{{category.category}}</small>
+                        <img class="cat-image" src="{{category.image.url}}">
+                    </div>
+                </a>
             </div>
             {% endfor %}
         </div>

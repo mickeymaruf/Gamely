@@ -12,6 +12,8 @@ class AccountForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AccountForm, self).__init__(*args, **kwargs)
         for field in self.fields:
+            self.fields[field].widget.attrs.update({'class': 'form-control'})
+            # placeholder
             field_name = field.replace("_", " ").title()
             self.fields[field].widget.attrs.update({'placeholder': f"Enter {field_name}"})
 
