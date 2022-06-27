@@ -23,9 +23,9 @@ def category_links(request):
     category_links = Category.objects.all()
     return {'category_links': category_links}
 
-def single_product(request, category_slug, product_name):
+def single_product(request, category_slug, product_slug):
     try:
-        product = Product.objects.get(category__slug=category_slug, name=product_name)
+        product = get_object_or_404(Product, category__slug=category_slug, slug=product_slug)
         in_cart = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=product).exists()
     except Exception as e:
         raise e

@@ -12,7 +12,7 @@
         </div>
         <div class="products-items" id="autoWidth" class="cs-hidden">
             {% for product in products %}
-            <a href="{% url 'single_product' product.category.slug product.name %}">
+            <a href="{% url 'single_product' product.category.slug product.slug %}">
                 <div class="item-a product-item">
                     <img class="product-img" src="{{product.image.url}}" alt="{{product.name}}">
                     <div class="product-details">

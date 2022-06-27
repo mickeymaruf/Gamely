@@ -15,18 +15,27 @@
 
       <!-- cart btn-->
       <a class="ms-3 text-success position-relative" href="{% url 'cart' %}"><i style="font-size: 2rem;" class="fa-solid fa-cart-shopping"></i>
+        {% if cart_items_quantity > 0 %}
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
           {% if cart_items_quantity > 99 %}
           99+
-          {% else %}
-          {{cart_items_quantity}}
           {% endif %}
+          {{cart_items_quantity}}
           <span class="visually-hidden">unread messages</span>
         </span>
+        {% endif %}
       </a>
        <!-- cart btn-->
 
-      <a class="ms-3 text-success" href=""><i style="font-size: 1.8rem;" class="fa-solid fa-user"></i></a>
+      <div class="btn-group ms-3" style="cursor: pointer;">
+        <span class="text-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i style="font-size: 1.8rem;" class="fa-solid fa-user"></i>
+        </span>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a href="{% url 'logout' %}" class="dropdown-item" type="button">Logout</a></li>
+        </ul>
+      </div>
+
       {% else %}
       <div class="text-center ms-3">
           <a class="btn signin-btn" href="{% url 'login' %}">Sign In</a>

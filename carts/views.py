@@ -1,16 +1,19 @@
 from django.shortcuts import redirect, render
+from django.contrib.auth.decorators import login_required
 
 from .models import Cart, CartItem
 from store.models import Product
 
 # Create your views here.
 
+@login_required(login_url='login')
 def _cart_id(request):
     cart = request.session.session_key
     if not cart:
         cart = request.session.create()
     return cart
 
+@login_required(login_url='login')
 def add_cart(request, product_id):
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))
@@ -29,6 +32,7 @@ def add_cart(request, product_id):
 
     return redirect('cart')
 
+@login_required(login_url='login')
 def cart(request, total=0, grand_total=0, tax=0, tax_percentage = 5):
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))
@@ -57,6 +61,7 @@ def cart_items_quantity(request, cart_items_quantity=0):
 
     return {'cart_items_quantity': cart_items_quantity}
 
+@login_required(login_url='login')
 def remove_cart(request, product_id):
     cart = Cart.objects.get(cart_id=_cart_id(request))
     product = Product.objects.get(id=product_id)
@@ -64,6 +69,7 @@ def remove_cart(request, product_id):
     cart_item.delete()
     return redirect('cart')
 
+@login_required(login_url='login')
 def remove_cart_item(request, product_id):
     cart = Cart.objects.get(cart_id=_cart_id(request))
     product = Product.objects.get(id=product_id)
