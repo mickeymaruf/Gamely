@@ -12,7 +12,20 @@
       </form>
       <!-- search bar -->
       {% if user.is_authenticated %}
-      <a class="ms-3 text-success" href="{% url 'cart' %}"><i style="font-size: 2rem;" class="fa-solid fa-cart-shopping"></i></a>
+
+      <!-- cart btn-->
+      <a class="ms-3 text-success position-relative" href="{% url 'cart' %}"><i style="font-size: 2rem;" class="fa-solid fa-cart-shopping"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {% if cart_items_quantity > 99 %}
+          99+
+          {% else %}
+          {{cart_items_quantity}}
+          {% endif %}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </a>
+       <!-- cart btn-->
+
       <a class="ms-3 text-success" href=""><i style="font-size: 1.8rem;" class="fa-solid fa-user"></i></a>
       {% else %}
       <div class="text-center ms-3">
