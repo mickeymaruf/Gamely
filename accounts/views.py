@@ -1,10 +1,12 @@
-from encodings import utf_8
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+
+from carts.models import Cart, CartItem
 from .decorators import unauthenticated_user
+from carts.views import _cart_id
 
 # User Activation Modules
 from django.contrib.sites.shortcuts import get_current_site
@@ -66,6 +68,27 @@ def signin(request, context=None):
         user = authenticate(request, email=email, password=password)
         
         if user is not None:
+            try:
+                cart_already_exists = Cart.objects.filter(user=user).exists()
+
+                if not cart_already_exists:
+                    cart = Cart.objects.get(cart_id=_cart_id(request))
+                    cart.user = user
+                    cart.save()
+                else:
+                    cart = Cart.objects.get(user=user)
+                    cart_item = CartItem.objects.filter(cart__cart_id=_cart_id(request))
+                    for item in cart_item:
+                        item.cart = cart
+                        item.save()
+
+                    # delete unassigned cart
+                    cart = Cart.objects.get(cart_id=_cart_id(request))
+                    cart.delete()
+
+            except:
+                pass
+
             login(request, user)
             return redirect('home')
         else:

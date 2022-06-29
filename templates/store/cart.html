@@ -82,8 +82,8 @@
                         <p class="text-center mb-3">
                             <img src="{% static 'images/payments.png' %}" height="26">
                         </p>
-                        <a href="./place-order.html" class="btn btn-primary d-block mb-2"> Checkout </a>
-                        <a href="./store.html" class="btn btn-light d-block">Continue Shopping</a>
+                        <a href="{% url 'checkout' %}" class="btn btn-primary d-block mb-2"> Checkout </a>
+                        <a href="{% url 'store' %}" class="btn btn-light d-block">Continue Shopping</a>
                     </div>
                     </div>
                 </aside>

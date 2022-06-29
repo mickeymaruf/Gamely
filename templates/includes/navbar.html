@@ -11,22 +11,8 @@
         <input class="form-control border-end-0 rounded-pill" type="search" placeholder="Search games" aria-label="Search">
       </form>
       <!-- search bar -->
+      
       {% if user.is_authenticated %}
-
-      <!-- cart btn-->
-      <a class="ms-3 text-success position-relative" href="{% url 'cart' %}"><i style="font-size: 2rem;" class="fa-solid fa-cart-shopping"></i>
-        {% if cart_items_quantity > 0 %}
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          {% if cart_items_quantity > 99 %}
-          99+
-          {% endif %}
-          {{cart_items_quantity}}
-          <span class="visually-hidden">unread messages</span>
-        </span>
-        {% endif %}
-      </a>
-       <!-- cart btn-->
-
       <div class="btn-group ms-3" style="cursor: pointer;">
         <span class="text-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           <i style="font-size: 1.8rem;" class="fa-solid fa-user"></i>
@@ -41,6 +27,22 @@
           <a class="btn signin-btn" href="{% url 'login' %}">Sign In</a>
       </div>
       {% endif %}
+
+      <!-- cart btn-->
+      <a class="ms-3 text-success position-relative" href="{% url 'cart' %}"><i style="font-size: 2rem;" class="fa-solid fa-cart-shopping"></i>
+        {% if cart_items_quantity > 0 %}
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {% if cart_items_quantity > 99 %}
+          99+
+          {% endif %}
+          {{cart_items_quantity}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+        {% endif %}
+      </a>
+      <!-- cart btn-->
+
+
     </div>
   </div>
 </nav>
