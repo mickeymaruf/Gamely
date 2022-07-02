@@ -96,12 +96,11 @@ def signin(request, context=None):
                     # delete unassigned cart
                     cart = Cart.objects.get(cart_id=_cart_id(request))
                     cart.delete()
-
             except:
                 pass
-
+            
             login(request, user)
-            return redirect('home')
+            return redirect(request.GET['next'] if 'next' in request.GET else "home")
         else:
             messages.error(request, 'Email or Password Not Found!')
 
