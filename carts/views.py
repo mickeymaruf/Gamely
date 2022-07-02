@@ -23,7 +23,7 @@ def add_cart(request, product_id):
             cart = Cart.objects.create(cart_id=_cart_id(request), user=request.user)
         else:
             cart = Cart.objects.create(cart_id=_cart_id(request))
-
+    
     product = Product.objects.get(id=product_id)
     try:
         cart_item = CartItem.objects.get(product=product, cart=cart)
@@ -57,10 +57,10 @@ def cart(request, total=0, grand_total=0, tax=0, tax_percentage = 5):
 
 def cart_items_quantity(request, cart_items_quantity=0):
     try:
-        cart = Cart.objects.get(cart_id=_cart_id(request))
         if request.user.is_authenticated:
             cart_items = CartItem.objects.filter(cart__user=request.user)
         else:
+            cart = Cart.objects.get(cart_id=_cart_id(request))
             cart_items = CartItem.objects.filter(cart=cart)
         for item in cart_items:
             cart_items_quantity += item.quantity

@@ -77,10 +77,21 @@ def signin(request, context=None):
                     cart.save()
                 else:
                     cart = Cart.objects.get(user=user)
-                    cart_item = CartItem.objects.filter(cart__cart_id=_cart_id(request))
-                    for item in cart_item:
-                        item.cart = cart
-                        item.save()
+                    cart_item = CartItem.objects.filter(cart=cart)
+                    cart_item_product = [item.product for item in cart_item]
+                    
+                    existing_cart_item = CartItem.objects.filter(cart__cart_id=_cart_id(request))
+
+                    # increasing quantity while logging in if the user's cartitem is already exists
+                    for item in existing_cart_item:
+                        if item.product in cart_item_product:
+                            ex_cart_item = CartItem.objects.get(product=item.product, cart=cart)
+                            ex_cart_item.quantity+=item.quantity
+                            ex_cart_item.save()
+                            item.delete()
+                        else:
+                            item.cart = cart
+                            item.save()
 
                     # delete unassigned cart
                     cart = Cart.objects.get(cart_id=_cart_id(request))
