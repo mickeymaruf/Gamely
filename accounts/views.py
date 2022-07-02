@@ -60,7 +60,9 @@ def register(request):
     return render(request, 'accounts/register.html', context)
 
 @unauthenticated_user
-def signin(request, context=None):
+def signin(request, context={}):
+    next = request.GET['next'] if 'next' in request.GET else "home"
+
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['password']
@@ -100,14 +102,18 @@ def signin(request, context=None):
                 pass
             
             login(request, user)
-            return redirect(request.GET['next'] if 'next' in request.GET else "home")
+            return redirect(next)
         else:
             messages.error(request, 'Email or Password Not Found!')
 
             context = {
                 'email': email,
-                'password': password
+                'password': password,
             }
+
+    # append next into the context dict for the register page
+    context['next'] = next
+
     return render(request, 'accounts/login.html', context)
 
 @login_required(login_url='login')

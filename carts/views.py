@@ -105,6 +105,18 @@ def remove_cart_item(request, product_id):
     return redirect('cart')
 
 @login_required(login_url='login')
-def checkout(request):
-    context = {}
+def checkout(request, total=0, grand_total=0, tax=0, tax_percentage = 5):
+    user = request.user
+    cart = Cart.objects.get(user=user)
+    cart_items = CartItem.objects.filter(cart=cart)
+
+    for item in cart_items:
+        total += item.product.price * item.quantity
+
+    # tax calculation for each products
+    tax = (tax_percentage*total)/100
+    
+    grand_total = total+tax
+
+    context = {'cart_items': cart_items, 'total': total, 'tax': tax, 'grand_total': grand_total, 'user': user}
     return render(request, 'store/checkout.html', context)
