@@ -82,11 +82,12 @@
                         <p class="text-center mb-3">
                             <img src="{% static 'images/payments.png' %}" height="26">
                         </p>
-                        <button class="btn btn-primary w-100"> Make Payment </button>
+                        <a href="{% url 'create_checkout_session' %}" class="btn btn-primary w-100"> Make Payment </a>
                     </div>
                 </div>
             </aside>
         </div>
     </div>
 </section>
-{% endblock content %}
+
+{% endblock %}

@@ -1,11 +1,17 @@
 from datetime import datetime
-from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+from django.contrib.sites.shortcuts import get_current_site
+from django.conf import settings
 
-from carts.models import Cart, CartItem
+from carts.models import CartItem
 from orders.forms import OrderForm
 from .models import Order
+from store.models import Product
+
+import stripe
+
+stripe.api_key = settings.STRIPE_PRIVATE_KEY
 
 # Create your views here.
 
@@ -59,8 +65,36 @@ def place_order(request):
             }
             return render(request, 'orders/payments.html', context)
     else:
-        return HttpResponse('checkout')
+        return redirect('checkout')
 
+@login_required(login_url='login')
 def payments(request):
-    
     return render(request, 'orders/payments.html')
+
+@login_required(login_url='login')
+def create_checkout_session(request):
+
+    # products = Product.objects.all()
+    # for product in products:
+    #     stripe_prod = stripe.Product.create(name=product)
+    #     stripe_price = stripe.Price.create(
+    #         unit_amount=product.price * 100,
+    #         currency="usd",
+    #         product=stripe_prod.stripe_id,
+    #     )
+    #     prod = Product.objects.get(name=product)
+    #     prod.price_id = stripe_price.stripe_id
+    #     prod.save()
+    
+    YOUR_DOMAIN = get_current_site(request).domain
+
+    cart_items = CartItem.objects.filter(cart__user=request.user)
+    
+    checkout_session = stripe.checkout.Session.create(
+            line_items=[{'price': item.product.price_id, 'quantity': item.quantity,} for item in cart_items],
+            mode='payment',
+            success_url=f'http://{YOUR_DOMAIN}/',
+            cancel_url=f'http://{YOUR_DOMAIN}/',
+        )
+
+    return redirect(checkout_session.url, code=303)
