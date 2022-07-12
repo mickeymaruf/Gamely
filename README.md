@@ -21,5 +21,7 @@ EMAIL_PORT=''
 EMAIL_HOST_USER=''
 EMAIL_HOST_PASSWORD=''
 EMAIL_USE_TLS=''
+EMAIL_USE_TLS=''
+STRIPE_PRIVATE_KEY=''
 ```
 Visit https://djecrety.ir/ to GENERATE DJANGO SECRET KEY and put it in the SECRET_KEY value.
