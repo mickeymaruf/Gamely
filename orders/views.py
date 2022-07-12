@@ -106,16 +106,16 @@ def payments(request, order_number):
     cart_items.delete()
 
     # Send order recieved email to customer
-    # subject = "Thank your for your order!"
-    # message = render_to_string('orders/order_recieved_email.html', {
-    #     "user": request.user,
-    #     "order": order,
-    # })
-    # EmailMessage(
-    #     subject,
-    #     message,
-    #     to=[request.user.email]
-    # ).send()
+    subject = "Thank your for your order!"
+    message = render_to_string('orders/order_recieved_email.html', {
+        "user": request.user,
+        "order": order,
+    })
+    EmailMessage(
+        subject,
+        message,
+        to=[request.user.email]
+    ).send()
 
     order_product = OrderProduct.objects.filter(order=order)
 
@@ -162,7 +162,7 @@ def create_stripe_products(request):
         prod = Product.objects.get(name=product)
         prod.price_id = stripe_price.stripe_id
         prod.save()
-
+        
     return HttpResponse('product created successfully!')
 
 @login_required(login_url='login')
