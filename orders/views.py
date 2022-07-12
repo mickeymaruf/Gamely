@@ -76,16 +76,12 @@ def place_order(request):
 
 
 @login_required(login_url='login')
-def payments(request):
+def payments(request, order_number):
     # Move the cart_item to order_product table
     cart_items = CartItem.objects.filter(cart__user=request.user)
 
     # Getting order by user & order number cz a user can have multiple order
-    if request.method == "POST":
-        order_number = request.POST['order']
-        order = Order.objects.get(user=request.user, order_number=order_number)
-    else:
-        order = Order.objects.get(user=request.user)
+    order = Order.objects.get(user=request.user, order_number=order_number)
 
     for item in cart_items:
         order_product = OrderProduct()
@@ -98,6 +94,7 @@ def payments(request):
         order_product.save()
 
         order.is_ordered = True
+        order.status = 'accepted'
         order.save()
 
         # Reduce the quantity of the sold products
@@ -109,24 +106,33 @@ def payments(request):
     cart_items.delete()
 
     # Send order recieved email to customer
-    # USER ACTIVATION
-    subject = "Thank your for your order!"
-    message = render_to_string('orders/order_recieved_email.html', {
-        "user": request.user,
-        "order": order,
-    })
-    EmailMessage(
-        subject,
-        message,
-        to=[request.user.email]
-    ).send()
+    # subject = "Thank your for your order!"
+    # message = render_to_string('orders/order_recieved_email.html', {
+    #     "user": request.user,
+    #     "order": order,
+    # })
+    # EmailMessage(
+    #     subject,
+    #     message,
+    #     to=[request.user.email]
+    # ).send()
 
-    return HttpResponse('payment successfully')
+    order_product = OrderProduct.objects.filter(order=order)
+
+    # total
+    total = 0
+    for item in order_product:
+        total += (item.product.price * item.quantity)
+
+    context = {'order': order, 'order_products': order_product, 'total': total}
+    return render(request, 'orders/order_complete.html', context)
 
 
 @login_required(login_url='login')
 def create_checkout_session(request):
     YOUR_DOMAIN = get_current_site(request).domain
+    if request.method == "POST":
+        order_number = request.POST['order']
 
     cart_items = CartItem.objects.filter(cart__user=request.user)
 
@@ -135,7 +141,7 @@ def create_checkout_session(request):
             line_items=[{'price': item.product.price_id,
                          'quantity': item.quantity, } for item in cart_items],
             mode='payment',
-            success_url=f'http://{YOUR_DOMAIN}/orders/payments/',
+            success_url=f'http://{YOUR_DOMAIN}/orders/payments/{order_number}/',
             cancel_url=f'http://{YOUR_DOMAIN}/',
         )
     except:
@@ -145,7 +151,7 @@ def create_checkout_session(request):
 
 @login_required(login_url='login')
 def create_stripe_products(request):
-    products = Product.objects.all()
+    products = Product.objects.filter(name="MLB The Show 22")
     for product in products:
         stripe_prod = stripe.Product.create(name=product)
         stripe_price = stripe.Price.create(
@@ -161,5 +167,4 @@ def create_stripe_products(request):
 
 @login_required(login_url='login')
 def order_complete(request):
-    context = {}
-    return render(request, 'order_complete', context)
+    return render(request, 'orders/order_complete.html')

@@ -6,7 +6,7 @@ from .models import Order, OrderProduct
 
 class OrderProductInline(admin.TabularInline):
     model = OrderProduct
-    readonly_fields = ('user', 'product', 'ordered', 'product_price', 'quantity')
+    readonly_fields = ('product', 'ordered', 'product_price', 'quantity')
     extra = 0
 
 class OrderAdmin(admin.ModelAdmin):

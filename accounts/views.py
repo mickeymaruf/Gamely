@@ -121,7 +121,6 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
-
 def activate(request, uid, token):
     try:
         uid = urlsafe_base64_decode(uid).decode()
