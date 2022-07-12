@@ -66,23 +66,27 @@
             <aside class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <dl class="dlist-align">
-                        <dt>Total price:</dt>
-                        <dd class="text-right">${{total}}</dd>
-                        </dl>
-                        <dl class="dlist-align">
-                        <dt>Tax:</dt>
-                        <dd class="text-right"> ${{tax}}</dd>
-                        </dl>
-                        <dl class="dlist-align">
-                        <dt>Total:</dt>
-                        <dd class="text-right text-dark b"><strong>${{grand_total}}</strong></dd>
-                        </dl>
-                        <hr>
-                        <p class="text-center mb-3">
-                            <img src="{% static 'images/payments.png' %}" height="26">
-                        </p>
-                        <a href="{% url 'create_checkout_session' %}" class="btn btn-primary w-100"> Make Payment </a>
+                        <form action=" {% url 'create_checkout_session' %}" method="POST">
+                            {% csrf_token %}
+                            <dl class="dlist-align">
+                            <dt>Total price:</dt>
+                            <dd class="text-right">${{total}}</dd>
+                            </dl>
+                            <dl class="dlist-align">
+                            <dt>Tax:</dt>
+                            <dd class="text-right"> ${{tax}}</dd>
+                            </dl>
+                            <dl class="dlist-align">
+                            <dt>Total:</dt>
+                            <dd class="text-right text-dark b"><strong>${{grand_total}}</strong></dd>
+                            </dl>
+                            <hr>
+                            <p class="text-center mb-3">
+                                <img src="{% static 'images/payments.png' %}" height="26">
+                            </p>
+                            <input type="hidden" name="order", value={{order.order_number}}>
+                            <button class="btn btn-primary w-100"> Make Payment </button>
+                        </form>
                     </div>
                 </div>
             </aside>
