@@ -135,3 +135,6 @@ def activate(request, uid, token):
     else:
         messages.success(request, 'Invalid activation link!')
         return redirect('register')
+
+def dashboard(request):
+    return render(request, 'accounts/dashboard.html')

@@ -1,6 +1,5 @@
 from datetime import datetime
-from logging import raiseExceptions
-from django.http import Http404, HttpResponse
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
@@ -57,8 +56,7 @@ def place_order(request):
             data.order_number = order_number
             data.save()
 
-            order = Order.objects.get(
-                user=user, order_number=order_number, is_ordered=False)
+            order = Order.objects.get(user=user, order_number=order_number, is_ordered=False)
             context = {
                 'order': order,
                 'cart_items': cart_items,
