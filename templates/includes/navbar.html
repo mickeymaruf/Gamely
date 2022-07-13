@@ -7,8 +7,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- search bar -->
-      <form class="d-flex ms-auto">
-        <input class="form-control border-end-0 rounded-pill" type="search" placeholder="Search games" aria-label="Search">
+      <form class="d-flex ms-auto" action="{% url 'search' %}">
+        <input class="form-control border-end-0 rounded-pill" type="search" name="keyword" placeholder="Search games" aria-label="Search" value="{{keyword}}">
       </form>
       <!-- search bar -->
       

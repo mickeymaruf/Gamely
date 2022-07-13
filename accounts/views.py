@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -18,8 +17,6 @@ from django.template.loader import render_to_string
 
 from .models import Account
 from .forms import AccountForm
-from store.forms import ReviewForm
-from store.models import Product, ReviewRating
 
 # Create your views here.
 
@@ -138,29 +135,3 @@ def activate(request, uid, token):
     else:
         messages.success(request, 'Invalid activation link!')
         return redirect('register')
-        
-
-# Review & Ratings
-def submit_review(request, product_slug):
-    current_url = request.META.get('HTTP_REFERER')
-
-    if request.method == "POST":
-        try:
-            reviews = ReviewRating.objects.get(user=request.user, product__slug=product_slug)
-            form = ReviewForm(request.POST, instance=reviews)
-            form.save()
-            messages.success(request, 'Thank you! Your review has been updated!')
-            return redirect(current_url)
-        except:
-            form = ReviewForm(request.POST)
-            if form.is_valid():
-                data = ReviewRating()
-                data.rating = form.cleaned_data['rating']
-                data.subject = form.cleaned_data['subject']
-                data.review = form.cleaned_data['review']
-                data.ip = request.META.get('REMOTE_ADDR')
-                data.user = request.user
-                data.product = Product.objects.get(slug=product_slug)
-                data.save()
-                messages.success(request, 'Thank you! Your review has been submitted!')
-                return redirect(current_url)

@@ -5,6 +5,11 @@
 <!-- products -->
 <section id="products">
     <div class="container my-5">
+
+    {% if 'search' in request.path %}
+        <h3 class="display-6 ">{{keyword}}</h3><hr>
+        <p class="mb-3">{{productsCount}} Item{{productsCount|pluralize:"s"}} found!</p>
+    {% else %}
         <!-- categories -->
         <section id="categories">
             <div class="container my-5 ps-0">
@@ -37,6 +42,7 @@
             </div>
         </section>
         <!-- categories -->
+        
 
         <!---->
         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -46,6 +52,9 @@
             <h3 class="display-6">All Games</h3>
             {% endif %}
         </div>
+
+    {% endif %}
+
         <div class="products-items row">
             {% if products %}
             {% for product in products %}

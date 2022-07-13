@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
 
 from carts.models import CartItem
 from store.forms import ReviewForm
@@ -51,3 +53,41 @@ def single_product(request, category_slug, product_slug):
         'reviews':reviews,
     }
     return render(request, 'store/single_product.html', context)
+
+# Review & Ratings
+def submit_review(request, product_slug):
+    current_url = request.META.get('HTTP_REFERER')
+
+    if request.method == "POST":
+        try:
+            reviews = ReviewRating.objects.get(user=request.user, product__slug=product_slug)
+            form = ReviewForm(request.POST, instance=reviews)
+            form.save()
+            messages.success(request, 'Thank you! Your review has been updated!')
+            return redirect(current_url)
+        except:
+            form = ReviewForm(request.POST)
+            if form.is_valid():
+                data = ReviewRating()
+                data.rating = form.cleaned_data['rating']
+                data.subject = form.cleaned_data['subject']
+                data.review = form.cleaned_data['review']
+                data.ip = request.META.get('REMOTE_ADDR')
+                data.user = request.user
+                data.product = Product.objects.get(slug=product_slug)
+                data.save()
+                messages.success(request, 'Thank you! Your review has been submitted!')
+                return redirect(current_url)
+
+def search(request, is_keyword=False):
+    if "keyword" in request.GET:
+        keyword = request.GET['keyword']
+        if keyword:
+            products = Product.objects.order_by('-created').filter(Q(name__icontains=keyword) | Q(category__category__icontains=keyword))
+            productsCount = products.count()
+        else:
+            products = None
+            productsCount = 0
+
+    context = {'products': products, 'productsCount': productsCount, 'keyword': keyword}
+    return render(request, 'store/store.html', context)
