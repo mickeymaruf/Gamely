@@ -27,9 +27,13 @@ def category_links(request):
 def single_product(request, category_slug, product_slug):
     try:
         product = get_object_or_404(Product, category__slug=category_slug, slug=product_slug)
-        in_cart = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=product).exists()
-        reviews = ReviewRating.objects.filter(status=True)
-
+        if request.user.is_authenticated:
+            in_cart = CartItem.objects.filter(cart__user=request.user, product=product).exists()
+        else:
+            in_cart = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=product).exists()
+            
+        # reviews
+        reviews = ReviewRating.objects.filter(status=True, product=product)
         form = ReviewForm()
     except Exception as e:
         raise e

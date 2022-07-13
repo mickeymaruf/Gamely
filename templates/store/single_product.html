@@ -18,10 +18,14 @@
                 </div>
 
                 <div class="product-description w-25">
-                    {% if in_cart %}
-                    <a class="btn btn-success rounded addtocart-btn" href="{% url 'cart' %}">Added to Cart &check;</a>
+                    {% if product.stock < 1 %}
+                        <h4 class="text-danger my-3">Out of Stock!</h4>
                     {% else %}
-                    <a class="btn btn-success rounded addtocart-btn" href="{% url 'add_cart' product.id %}">Add to Cart +</a>
+                        {% if in_cart %}
+                        <a class="btn btn-success rounded addtocart-btn" href="{% url 'cart' %}">Added to Cart &check;</a>
+                        {% else %}
+                        <a class="btn btn-success rounded addtocart-btn" href="{% url 'add_cart' product.id %}">Add to Cart +</a>
+                        {% endif %}
                     {% endif %}
                 </div>
 

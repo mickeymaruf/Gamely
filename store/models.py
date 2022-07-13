@@ -22,7 +22,7 @@ class Product(models.Model):
         return self.name
     
     def single_product_url(self):
-        return reverse('single_product', args=[self.category.slug, self.name])
+        return reverse('single_product', args=[self.category.slug, self.slug])
 
     def averageReview(self):
         reviews = ReviewRating.objects.filter(product=self, status=True).aggregate(average=Avg('rating'))
