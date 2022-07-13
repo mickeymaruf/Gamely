@@ -65,7 +65,7 @@
                                             <tr>
                                                 <td>{{item.product}}</td>
                                                 <td class="text-center">{{item.quantity}}</td>
-                                                <td class="text-center">${{item.product.price}}.00 USD</td>
+                                                <td class="text-center">${% widthratio item.product.price 1 item.quantity %}.00 USD</td>
                                             </tr>
                                             {% endfor %}
                                         </tbody>

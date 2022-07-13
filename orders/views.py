@@ -34,12 +34,8 @@ def place_order(request):
 
     ####
     total = 0
-    tax = 0
-    tax_percentage = 5
     for item in cart_items:
         total += (item.product.price * item.quantity)
-    tax = (tax_percentage*total)/100
-    grand_total = total+tax
     ####
 
     if request.method == "POST":
@@ -52,8 +48,7 @@ def place_order(request):
             data.contact_phone = user.phone_number
             data.delivery_email = form.cleaned_data['delivery_email']
             data.delivery_phone = form.cleaned_data['delivery_phone']
-            data.order_total = grand_total
-            data.tax = tax
+            data.order_total = total
             data.ip = request.META.get('REMOTE_ADDR')
             data.save()
             # Generating order number
@@ -67,8 +62,7 @@ def place_order(request):
             context = {
                 'order': order,
                 'cart_items': cart_items,
-                'total': total, 'tax': tax,
-                'grand_total': grand_total
+                'total': total,
             }
             return render(request, 'orders/payments.html', context)
     else:

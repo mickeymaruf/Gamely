@@ -35,7 +35,7 @@ def add_cart(request, product_id):
 
     return redirect('cart')
 
-def cart(request, total=0, grand_total=0, tax=0, tax_percentage = 5):
+def cart(request, total=0):
     try:
         if request.user.is_authenticated:
             cart_items = CartItem.objects.filter(cart__user=request.user)
@@ -45,14 +45,10 @@ def cart(request, total=0, grand_total=0, tax=0, tax_percentage = 5):
 
         for cart_item in cart_items:
             total += cart_item.product.price*cart_item.quantity
-        # tax calculation for each products
-        tax = (tax_percentage*total)/100
     except:
         cart_items=None
 
-    grand_total = total+tax
-
-    context = {'cart_items': cart_items, 'total': total, 'tax': tax, 'grand_total': grand_total}
+    context = {'cart_items': cart_items, 'total': total}
     return render(request, 'store/cart.html', context)
 
 def cart_items_quantity(request, cart_items_quantity=0):
@@ -105,7 +101,7 @@ def remove_cart_item(request, product_id):
     return redirect('cart')
 
 @login_required(login_url='login')
-def checkout(request, total=0, grand_total=0, tax=0, tax_percentage = 5):
+def checkout(request, total=0):
     user = request.user
     cart = Cart.objects.get(user=user)
     cart_items = CartItem.objects.filter(cart=cart)
@@ -113,10 +109,5 @@ def checkout(request, total=0, grand_total=0, tax=0, tax_percentage = 5):
     for item in cart_items:
         total += item.product.price * item.quantity
 
-    # tax calculation for each products
-    tax = (tax_percentage*total)/100
-    
-    grand_total = total+tax
-
-    context = {'cart_items': cart_items, 'total': total, 'tax': tax, 'grand_total': grand_total, 'user': user}
+    context = {'cart_items': cart_items, 'total': total, 'user': user}
     return render(request, 'store/checkout.html', context)

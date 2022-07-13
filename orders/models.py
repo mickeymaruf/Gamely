@@ -23,7 +23,6 @@ class Order(models.Model):
     delivery_email = models.EmailField(max_length=200)
 
     order_total = models.FloatField()
-    tax = models.FloatField()
     status = models.CharField(max_length=10, choices=STATUS, default='new')
     ip = models.CharField(blank=True, max_length=20)
     is_ordered = models.BooleanField(default=False)
