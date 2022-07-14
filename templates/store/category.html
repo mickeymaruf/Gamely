@@ -3,13 +3,13 @@
 
 <!-- categories -->
 <section id="categories">
-    <div class="container my-5 ps-0">
+    <div class="container my-5 p-sm-3">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="lead-3">Category</h2>
         </div>
         <div class="row">
             {% for category in category_links %}
-            <div class="col-2 mb-3 position-relative">
+            <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-3 position-relative">
                 <a href="{% url 'product_by_catory' category.slug %}">
                     <div class="card category-item">
                         <small class="category-name">{{category.category}}</small>
