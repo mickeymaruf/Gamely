@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
 from django.conf import settings
+from django.contrib import messages
 
 from carts.models import CartItem
 from orders.forms import OrderForm
@@ -160,3 +161,11 @@ def create_stripe_products(request):
 @login_required(login_url='login')
 def order_complete(request):
     return render(request, 'orders/order_complete.html')
+
+@login_required(login_url='login')
+def cancel_order(request, order_number):
+    order = Order.objects.get(user=request.user, order_number=order_number)
+    order.delete()
+
+    messages.warning(request, "Order has been cancelled successfully!")
+    return redirect('my_orders')

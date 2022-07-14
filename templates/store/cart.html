@@ -52,7 +52,7 @@
                             </div>
                         </td>
                         <td class="text-right"> 
-                            <a href="{% url 'remove_cart' item.product.id %}" class="btn btn-danger"> Remove</a>
+                            <a href="{% url 'remove_cart' item.product.id %}" class="btn btn-danger" onclick="return confirm('Are you sure want to remove the product?')"> Remove</a>
                         </td>
                     </tr>
                     {% endfor %}

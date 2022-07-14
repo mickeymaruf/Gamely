@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="section-conten padding-y bg">
+
+    <div class="container">
+        <div class="row">
+
+        {% include 'includes/dashboard-sidebar.html' %}
+        
+        <main class="col-md-9">
+            <article class="card">
+            <header class="card-header d-flex justify-content-between">
+                <strong class="d-inline-block mr-3">Order ID: {{order.order_number}}</strong>
+                <span>Order Date: {{order.created|date}}</span>
+            </header>
+            <div class="card-body">
+                <div class="row"> 
+                    <div class="col-md-8">
+                        <h6 class="text-muted">Delivery to</h6>
+                        <p>{{order.name}}<br>  
+                        Phone {{order.delivery_phone}} <br> Email: {{order.delivery_email}} <br>
+                        IP: {{order.ip}}
+                         </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="text-muted">Payment</h6>
+                        <span class="text-success">
+                            <i class="fab fa-lg fa-cc-visa"></i>
+                            Visa  **** 4216  
+                        </span><br>
+                         <span class="b">Total:  ${{order.order_total}} </span>
+                        </p>
+                    </div>
+                </div> <!-- row.// -->
+            </div> <!-- card-body .// -->
+            <div class="table-responsive">
+            <table class="table table-hover">
+                {% for item in order_product %}
+                <tr>
+                    <td width="65">
+                        <img src="{{item.product.image.url}}" class="img-xs border">
+                    </td>
+                    <td> 
+                        <p class="title mb-0">{{item.product}} </p>
+                        <var class="price text-muted">USD {%widthratio item.product.price 1 item.quantity %}</var>
+                    </td>
+                    <td> Qunatity <br> {{item.quantity}} </td>
+                    <td> <a href="{% url 'single_product' item.product.category.slug item.product.slug %}" class="btn btn-light">View</a> </td>
+                </tr>
+                {% endfor %}
+            </table>
+            </div> <!-- table-responsive .end// -->
+            </article> <!-- order-group.// --> 
+        </main>
+    </div> <!-- row.// -->
+    </div>
+    
+    
+    </section>
+
+{% endblock content %}

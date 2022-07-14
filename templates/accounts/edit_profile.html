@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="section-conten padding-y bg">
+
+    <div class="container">
+        <div class="row">
+
+        {% include 'includes/dashboard-sidebar.html' %}
+        
+        <main class="col-md-9">
+            <article class="card">
+            <header class="card-header d-flex justify-content-between">
+                <strong class="d-inline-block mr-3">Edit your profile</strong>
+            </header>
+            <div class="card-body">
+               <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div>
+                        <img class="rounded-circle me-2 mb-3 border" src="{{user.profile_picture.url}}" alt="Profile Picture" width="100">
+                        {{form.profile_picture}}
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-sm-6 mt-2">
+                            <label>First name</label>
+                            {{form.first_name}}
+                        </div>
+                        <div class="col-sm-6 mt-2">
+                            <label>Last name</label>
+                            {{form.last_name}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 mt-2">
+                            <label>Username</label>
+                            {{form.username}}
+                        </div>
+                        <div class="col-sm-6 mt-2">
+                            <label>Email</label>
+                            {{form.email}}
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success mt-3" type="submit">Submit</button>
+                </form>
+
+            </div> <!-- card-body .// -->
+            <div class="table-responsive">
+            <table class="table table-hover">
+                
+            </table>
+            </div> <!-- table-responsive .end// -->
+            </article> <!-- order-group.// --> 
+        </main>
+    </div> <!-- row.// -->
+    </div>
+    
+    
+    </section>
+
+{% endblock content %}

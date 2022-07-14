@@ -6,6 +6,7 @@ from django.contrib import messages
 from carts.models import Cart, CartItem
 from .decorators import unauthenticated_user
 from carts.views import _cart_id
+from orders.models import Order, OrderProduct
 
 # User Activation Modules
 from django.contrib.sites.shortcuts import get_current_site
@@ -16,7 +17,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.template.loader import render_to_string
 
 from .models import Account
-from .forms import AccountForm
+from .forms import AccountForm, ProfileEditForm
 
 # Create your views here.
 
@@ -201,5 +202,33 @@ def reset_password(request):
 
     return render(request, 'accounts/reset_password.html')
 
+
+# DASHBOARD FUNCTIONALITY
+
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    return render(request, 'accounts/dashboard/dashboard.html')
+
+def my_orders(request):
+    orders = Order.objects.filter(is_ordered=True, user=request.user).order_by('-created')
+    context = {'orders': orders}
+    return render(request, 'accounts/dashboard/my_orders.html', context)
+
+def order_details(request, order_number):
+    order = Order.objects.get(is_ordered=True, user=request.user, order_number=order_number)
+    order_product = OrderProduct.objects.filter(order=order, ordered=True)
+    
+    context = {'order': order, 'order_product': order_product}
+    return render(request, 'accounts/dashboard/order_details.html', context)
+
+def edit_profile(request):
+    user = request.user
+    
+    if request.method == "POST":
+        form = ProfileEditForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_profile')
+    else:
+        form = ProfileEditForm(instance=user)
+
+    return render(request, 'accounts/edit_profile.html', {'user': user, 'form': form})

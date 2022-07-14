@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 import uuid
+from django.conf import settings
 
 # Create your models here.
 
@@ -49,6 +50,7 @@ class Account(AbstractBaseUser):
     username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(max_length=50, unique=True)
     phone_number = models.CharField(max_length=50, blank=True)
+    profile_picture = models.ImageField(upload_to='images/profile-pictures/', default='images/default-user.png')
 
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     date_joined = models.DateTimeField(auto_now_add=True)
@@ -71,3 +73,6 @@ class Account(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+
+    def name(self):
+        return f"{self.first_name} {self.last_name}"

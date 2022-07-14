@@ -62,9 +62,14 @@ ul li {
   padding: 6px;
 }
 
+.cart__btn{
+  margin-left: 0.5rem;
+}
+
 @media screen and (max-width:991px) {
   .search__input {
     margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   .carousel-caption h3{
     font-size: 1.5rem;

@@ -1,5 +1,5 @@
 <!-- nav -->
-<nav class="navbar navbar-expand-lg navbar-light border-bottom py-3 position-relative">
+<nav class="navbar navbar-expand-lg navbar-light border-bottom py-3">
   <div class="container">
     <a id="logo" class="navbar-brand fw-bold text-uppercase me-1" href="{% url 'home' %}">Gamely</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,36 +12,40 @@
       </form>
       <!-- search bar -->
       
-      {% if user.is_authenticated %}
-      <div class="btn-group ms-3" style="cursor: pointer;">
-        <span class="text-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <i style="font-size: 1.8rem;" class="fa-solid fa-user"></i>
-        </span>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a href="{% url 'logout' %}" class="dropdown-item" type="button">Logout</a></li>
-        </ul>
-      </div>
+      <div class="d-flex">
+        {% if user.is_authenticated %}
+        <div class="btn-group ms-3" style="cursor: pointer;">
+          <a href="{% url 'dashboard' %}" class="btn btn-outline-success">
+            Dashboard
+          </a>
+        </div>
+        <div class="btn-group ms-2" style="cursor: pointer;">
+          <a href="{% url 'logout' %}" class="btn btn-outline-success" onclick="return confirm('Are you sure want to logout?')">
+            Logout
+          </a>
+        </div>
 
-      {% else %}
-      <div class="text-center ms-3">
-          <a class="btn signin-btn" href="{% url 'login' %}">Sign In</a>
-      </div>
-      {% endif %}
-
-      <!-- cart btn-->
-      <a class="ms-3 text-success position-relative" href="{% url 'cart' %}"><i style="font-size: 2rem;" class="fa-solid fa-cart-shopping"></i>
-        {% if cart_items_quantity > 0 %}
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          {% if cart_items_quantity > 99 %}
-          99+
-          {% endif %}
-          {{cart_items_quantity}}
-          <span class="visually-hidden">unread messages</span>
-        </span>
+        {% else %}
+        <div class="text-center ms-3">
+            <a class="btn signin-btn" href="{% url 'login' %}">Sign In</a>
+        </div>
         {% endif %}
-      </a>
-      <!-- cart btn-->
 
+        <!-- cart btn-->
+        <a class="cart__btn text-success position-relative" href="{% url 'cart' %}">
+          <i style="font-size: 2rem;" class="fa-solid fa-cart-shopping"></i>
+          {% if cart_items_quantity > 0 %}
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {% if cart_items_quantity > 99 %}
+            99+
+            {% endif %}
+            {{cart_items_quantity}}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+          {% endif %}
+        </a>
+        <!-- cart btn-->
+      </div>
 
     </div>
   </div>
@@ -51,7 +55,7 @@
 <!-- messages -->
 {% if messages %}
   {% for message in messages %}
-  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" style="width:400px;position:fixed;left:50%;transform: translate(-50%, -10%);z-index:1111;">
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show border" role="alert" style="width:400px;position:fixed;left:50%;transform: translate(-50%, -10%);z-index:1111;">
     {{ message }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
