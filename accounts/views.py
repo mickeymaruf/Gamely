@@ -250,6 +250,7 @@ def change_password(request):
                 if user.check_password(current_password):
                     user.set_password(new_password)
                     user.save()
+                    login(request, user)
                     messages.success(request, "Password changed successfully!")
                     return redirect('dashboard')
                 else:
@@ -261,3 +262,17 @@ def change_password(request):
             return redirect('change_password')
 
     return render(request, 'accounts/dashboard/change_password.html')
+
+def delete_account(request):
+    if request.method == "POST":
+        password = request.POST['password']
+        if request.user.check_password(password):
+            user = request.user
+            user.delete()
+            messages.success(request, "Account deleted successfully!")
+            return redirect('login')
+        else:
+            messages.error(request, "Wrong password!")
+            return redirect('delete_account')
+
+    return render(request, 'accounts/dashboard/delete_account.html')

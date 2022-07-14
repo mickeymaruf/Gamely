@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="section-conten padding-y bg">
+
+    <div class="container">
+        <div class="row">
+
+        {% include 'includes/dashboard-sidebar.html' %}
+        
+        <main class="col-md-9">
+            <article class="card">
+            <header class="card-header d-flex justify-content-between">
+                <strong class="d-inline-block mr-3">Account Deletation</strong>
+            </header>
+            <div class="card-body">
+                <h4 class="mb-2">Confrim password to delete this account!</h4><hr>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                        <div class="row">
+                            <div>
+                                <label>Enter password</label>
+                                <input type="password" class="form-control" name="password" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-danger mt-2" onclick="return confirm('Are you sure want delete this account?')">Delete Account</button>
+                </form>
+
+            </div> <!-- card-body .// -->
+            <div class="table-responsive">
+            <table class="table table-hover">
+                
+            </table>
+            </div> <!-- table-responsive .end// -->
+            </article> <!-- order-group.// --> 
+        </main>
+    </div> <!-- row.// -->
+    </div>
+    
+    
+    </section>
+
+{% endblock content %}
