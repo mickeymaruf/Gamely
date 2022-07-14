@@ -6,11 +6,11 @@
     <div class="container my-5">
 
         <div class="d-lg-flex justify-content-between">
-            <div class="single-product-item">
+            <div class="single-product-item" style="width:15%">
                 <img class="product-img" src="{{product.image.url}}" alt="{{product.name}}">
-                <div class="d-flex align-items-center">
-                    <h5 class="fw-bold mt-3 me-1">{{product.name}}</h5>
-                    <span class="mt-1">&#40;{{product.averageReview}}&#41;</span>
+                <div class="align-items-center mt-3 w-75 mb-2">
+                    <h5 class="fw-bold d-inline">{{product.name}}</h5>
+                    <span>&#40;{{product.averageReview}}&#41;</span>
                 </div>
                 <p class="mb-2">Price: {{product.price}}$</p>
             </div>

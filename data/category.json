@@ -3,9 +3,9 @@
     "model": "store.category",
     "pk": 1,
     "fields": {
-        "category": "Fighiting",
+        "category": "Fighting",
         "slug": "fighiting",
-        "image": "images/category-images/swords-min.png"
+        "image": "category-images/cod.jpg"
     }
 },
 {
@@ -13,8 +13,8 @@
     "pk": 2,
     "fields": {
         "category": "Survival",
-        "slug": "adventure",
-        "image": "images/category-images/bonfire-min.png"
+        "slug": "survival",
+        "image": "category-images/farcry.jpg"
     }
 },
 {
@@ -23,7 +23,7 @@
     "fields": {
         "category": "Sports",
         "slug": "sports",
-        "image": "images/category-images/trophy-min.png"
+        "image": "category-images/sports_ffAbICE.jpg"
     }
 },
 {
@@ -32,7 +32,7 @@
     "fields": {
         "category": "Simulation",
         "slug": "simulation",
-        "image": "images/category-images/simulation.png"
+        "image": "category-images/microsoftflight.jpg"
     }
 },
 {
@@ -41,7 +41,43 @@
     "fields": {
         "category": "Racing",
         "slug": "racing",
-        "image": "images/category-images/racing-flag-min.png"
+        "image": "category-images/racing.jpg"
+    }
+},
+{
+    "model": "store.category",
+    "pk": 6,
+    "fields": {
+        "category": "Adventure",
+        "slug": "adventure",
+        "image": "category-images/adventure.jpg"
+    }
+},
+{
+    "model": "store.category",
+    "pk": 7,
+    "fields": {
+        "category": "RPG",
+        "slug": "rpg",
+        "image": "category-images/rpg.jpg"
+    }
+},
+{
+    "model": "store.category",
+    "pk": 8,
+    "fields": {
+        "category": "Strategy",
+        "slug": "strategy",
+        "image": "category-images/strategy.jpg"
+    }
+},
+{
+    "model": "store.category",
+    "pk": 9,
+    "fields": {
+        "category": "Horror",
+        "slug": "horror",
+        "image": "category-images/horror.jpg"
     }
 }
 ]

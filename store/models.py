@@ -13,7 +13,7 @@ class Product(models.Model):
     price_id = models.CharField(max_length=200, unique=True, null=True)
     stock = models.IntegerField()
     is_available = models.BooleanField(default=True)
-    image = models.ImageField(upload_to='images/products')
+    image = models.ImageField(upload_to='products')
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
@@ -41,7 +41,7 @@ class Product(models.Model):
 class Category(models.Model):
     category = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
-    image = models.ImageField(upload_to='images/category-images')
+    image = models.ImageField(upload_to='category-images')
     class Meta:
         verbose_name = "Category"
         verbose_name_plural  = "Categories"

@@ -7,12 +7,13 @@
         "slug": "naraka-bladepoint",
         "description": "Naraka: Bladepoint is an action-adventure battle royale game developed by 24 Entertainment and published by NetEase Games Montreal. It is a battle royale game where up to 60 players fight each other to be the last one standing.",
         "price": 700,
-        "stock": 50,
+        "price_id": "price_1LKe7SBRtYMY0Vhln9SMzdrd",
+        "stock": 1000,
         "is_available": true,
-        "image": "images/products/naraka.jpg",
+        "image": "products/naraka.jpg",
         "category": 2,
         "created": "2022-06-25T10:18:30.416Z",
-        "modified": "2022-06-26T08:37:07.625Z"
+        "modified": "2022-07-12T12:30:10.268Z"
     }
 },
 {
@@ -23,12 +24,13 @@
         "slug": "forza-horizon-4",
         "description": "Forza Horizon 4 is a 2018 racing video game developed by Playground Games and published by Microsoft Studios. It was released on 2 October 2018 on Xbox One and Microsoft Windows after being announced at Xbox's E3 2018 conference. An enhanced version of the game was released on Xbox Series X/S on 10 November 2020.",
         "price": 50,
-        "stock": 60,
+        "price_id": "price_1LJgI1BRtYMY0VhlxfTzsysW",
+        "stock": 993,
         "is_available": true,
-        "image": "images/products/froza.jpg",
+        "image": "products/froza.jpg",
         "category": 5,
         "created": "2022-06-25T10:13:16.437Z",
-        "modified": "2022-06-26T08:36:48.894Z"
+        "modified": "2022-07-13T15:42:26.109Z"
     }
 },
 {
@@ -39,12 +41,13 @@
         "slug": "conan-exiles",
         "description": "Conan Exiles is a survival video game developed and published by Funcom for Microsoft Windows, PlayStation 4, and Xbox One. The game is set in the world of Conan the Barbarian, with the custom playable character being rescued by Conan, beginning their journey.",
         "price": 50,
-        "stock": 10,
+        "price_id": "price_1LKe6mBRtYMY0Vhl8q4U6fyM",
+        "stock": 993,
         "is_available": true,
-        "image": "images/products/Conan_Exiles.jpg",
+        "image": "products/Conan_Exiles.jpg",
         "category": 2,
         "created": "2022-06-25T10:22:21.792Z",
-        "modified": "2022-06-26T08:35:36.655Z"
+        "modified": "2022-07-14T08:04:50.369Z"
     }
 },
 {
@@ -55,12 +58,13 @@
         "slug": "microsoft-flight-simulator",
         "description": "Microsoft Flight Simulator is an amateur flight simulator developed by Asobo Studio and published by Xbox Game Studios. It is an entry in the Microsoft Flight Simulator series which began in 1982, and was preceded by Microsoft Flight Simulator X in 2006.",
         "price": 45,
-        "stock": 55,
+        "price_id": "price_1LKe3wBRtYMY0VhlWzIqUB3g",
+        "stock": 998,
         "is_available": true,
-        "image": "images/products/microsoft_flight_simulator.jpg",
+        "image": "products/microsoft_flight_simulator.jpg",
         "category": 4,
         "created": "2022-06-25T10:31:40.048Z",
-        "modified": "2022-06-26T08:35:16.915Z"
+        "modified": "2022-07-13T13:59:01.765Z"
     }
 },
 {
@@ -71,12 +75,13 @@
         "slug": "call-of-duty-ghosts",
         "description": "Call of Duty: Ghosts is a 2013 first-person shooter video game developed by Infinity Ward and published by Activision. It is the tenth major installment in the Call of Duty series and the sixth developed by Infinity Ward. It was released for Microsoft Windows, PlayStation 3, Xbox 360, and Wii U on November 5, 2013.",
         "price": 800,
-        "stock": 100,
+        "price_id": "price_1LJgI3BRtYMY0VhlRRw7KJjX",
+        "stock": 998,
         "is_available": true,
-        "image": "images/products/cod.jpg",
+        "image": "products/cod.jpg",
         "category": 1,
         "created": "2022-06-25T10:08:13.705Z",
-        "modified": "2022-06-26T08:33:48.568Z"
+        "modified": "2022-07-14T08:04:50.402Z"
     }
 },
 {
@@ -87,12 +92,13 @@
         "slug": "shadowrun-hong-kong",
         "description": "Shadowrun: Hong Kong is a turn-based tactical role-playing video game set in the Shadowrun universe. It was developed and published by Harebrained Schemes, who previously developed Shadowrun Returns and its standalone expansion, Shadowrun: Dragonfall - Director's Cut.",
         "price": 20,
-        "stock": 10,
+        "price_id": "price_1LJgI4BRtYMY0Vhlwh4YnowD",
+        "stock": 998,
         "is_available": true,
-        "image": "images/products/hongkong.jpg",
+        "image": "products/hongkong.jpg",
         "category": 2,
         "created": "2022-06-25T10:20:39.630Z",
-        "modified": "2022-06-26T08:33:31.789Z"
+        "modified": "2022-07-12T13:41:14.741Z"
     }
 },
 {
@@ -103,12 +109,13 @@
         "slug": "mlb-the-show-22",
         "description": "MLB The Show 22 is a baseball video game by San Diego Studio and published by Sony Interactive Entertainment, based on Major League Baseball. It was released for the PlayStation 4 PlayStation 5, Xbox One, and Xbox Series X/S, as well as Nintendo Switch, a first for the franchise.",
         "price": 10,
-        "stock": 7,
+        "price_id": "price_1LKioxBRtYMY0VhlZa7ZQcC9",
+        "stock": 998,
         "is_available": true,
-        "image": "images/products/MLB_The_Show_22.jpg",
+        "image": "products/MLB_The_Show_22.jpg",
         "category": 3,
         "created": "2022-06-25T10:28:24.328Z",
-        "modified": "2022-06-26T08:33:03.205Z"
+        "modified": "2022-07-12T13:31:45.664Z"
     }
 },
 {
@@ -119,12 +126,13 @@
         "slug": "playerunknowns-battlegrounds",
         "description": "UBG: Battlegrounds (previously known as PlayerUnknown's Battlegrounds) is a battle royale game developed and published by PUBG Studios, a subsidiary of Krafton. The game is based on previous mods that were created by Brendan \"PlayerUnknown\" Greene for other games, inspired by the 2000 Japanese film Battle Royale, and expanded into a standalone game under Greene's creative direction. In the game, up to one hundred players parachute onto an island and scavenge for weapons and equipment to kill others while avoiding getting killed themselves. The available safe area of the game's map decreases in size over time, directing surviving players into tighter areas to force encounters.",
         "price": 99,
-        "stock": 10,
+        "price_id": "price_1LJgI6BRtYMY0VhlVkwZAWwF",
+        "stock": 1000,
         "is_available": true,
-        "image": "images/products/pubg.jpg",
+        "image": "products/pubg.jpg",
         "category": 1,
         "created": "2022-06-25T10:15:09.735Z",
-        "modified": "2022-06-26T08:31:24.630Z"
+        "modified": "2022-07-13T14:06:10.678Z"
     }
 },
 {
@@ -135,12 +143,13 @@
         "slug": "fallout-76",
         "description": "Fallout 76 is a 2018 online action role-playing video game developed by Bethesda Game Studios and published by Bethesda Softworks. It is an installment in the Fallout series and a prequel to previous entries.",
         "price": 60,
-        "stock": 100,
+        "price_id": "price_1LJgI7BRtYMY0VhlLivR0n21",
+        "stock": 1000,
         "is_available": true,
-        "image": "images/products/fallout.jpg",
+        "image": "products/fallout.jpg",
         "category": 1,
         "created": "2022-06-25T10:11:52.372Z",
-        "modified": "2022-06-26T08:31:16.925Z"
+        "modified": "2022-07-12T12:29:32.853Z"
     }
 },
 {
@@ -151,12 +160,13 @@
         "slug": "dayz",
         "description": "DayZ is a survival video game developed and published by Bohemia Interactive. It is the standalone successor of the mod of the same name for the game ARMA 2.",
         "price": 100,
-        "stock": 4,
+        "price_id": "price_1LJgEOBRtYMY0VhlPr8Yfd0Q",
+        "stock": 1000,
         "is_available": true,
-        "image": "images/products/dayz.jpg",
+        "image": "products/dayz.jpg",
         "category": 2,
         "created": "2022-06-25T10:23:33.189Z",
-        "modified": "2022-06-26T08:31:01.986Z"
+        "modified": "2022-07-12T12:29:23.918Z"
     }
 },
 {
@@ -165,14 +175,15 @@
     "fields": {
         "name": "7 Days to Die",
         "slug": "7-days-to-die",
-        "description": "7 Days to Die is an early access survival horror video game set in an open world developed by The Fun Pimps. It was released through Early Access on Steam for Microsoft Windows and Mac OS X on December 13, 2013, and for Linux on November 22, 2014.",
+        "description": "Aragami 2 is a third person stealth game where you play as an assassin with the power to control the shadows. Join the shadow clan and fight the invader armies to protect your people.\r\n\r\nYou are one of the last elite warriors of your kin, the Aragami. Victims of a supernatural affliction which corrodes the body and devours the mind, the Aragami control Shadow Essence - a mystical power which grants the ability to control the shadows. With this power the Aragami carry out their tasks and quests - assignments made all along the valley to ensure the subsistence of the village and to free the Aragami enslaved by the invader armies.\r\n\r\nPLAY IN SINGLE MODE OR IN CO-OP WITH YOUR FRIENDS: Discover a full campaign and join the assassin squad up to 3 players in co-op.\r\n\r\nENGAGE IN FAST-PACED STEALTH ACTIONS: Manage covers and powers with agility. Take down your enemies with stealth kills and non-lethal takedowns.\r\n\r\nENTER INTO COMBAT AS A TACTICAL DECISION: Become the master of a skill based combat with high risk and high reward.\r\n\r\nBUILD YOUR SHADOW ASSASSIN: Craft your weapons and armors and upgrade your elite warrior with a wide variety of abilities and shadow powers.\r\n\r\nPROTECT THE RASHOMON VALLEY: Save your people and defeat the curse before it ends with you and discover how the Aragami became a legend.",
         "price": 65,
-        "stock": 4,
+        "price_id": "price_1LJgEPBRtYMY0VhllBJyQ2GG",
+        "stock": 1000,
         "is_available": true,
-        "image": "images/products/7_Days_to_Die.jpg",
+        "image": "products/7_Days_to_Die.jpg",
         "category": 2,
         "created": "2022-06-25T10:29:22.846Z",
-        "modified": "2022-06-26T08:29:40.386Z"
+        "modified": "2022-07-12T12:29:07.512Z"
     }
 },
 {
@@ -183,12 +194,13 @@
         "slug": "halo",
         "description": "Halo is a military science fiction media franchise. The franchise is currently managed and developed by 343 Industries, and owned and published by Xbox Game Studios. Primarily taking place in the 26th century, the franchise centers on conflict between humanity and a variety of alien species.",
         "price": 10,
-        "stock": 500,
+        "price_id": "price_1LJgEQBRtYMY0VhlF8g946FM",
+        "stock": 1000,
         "is_available": true,
-        "image": "images/products/halo.jpg",
+        "image": "products/halo.jpg",
         "category": 1,
         "created": "2022-06-25T10:12:32.953Z",
-        "modified": "2022-06-26T08:24:59.929Z"
+        "modified": "2022-07-12T12:29:12.269Z"
     }
 }
 ]

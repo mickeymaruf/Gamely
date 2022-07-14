@@ -50,7 +50,7 @@ class Account(AbstractBaseUser):
     username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(max_length=50, unique=True)
     phone_number = models.CharField(max_length=50, blank=True)
-    profile_picture = models.ImageField(upload_to='images/profile-pictures/', default='images/default-user.png')
+    profile_picture = models.ImageField(upload_to='profile-pictures/', default='default-user.png')
 
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     date_joined = models.DateTimeField(auto_now_add=True)
