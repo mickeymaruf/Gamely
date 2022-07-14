@@ -205,14 +205,17 @@ def reset_password(request):
 
 # DASHBOARD FUNCTIONALITY
 
+@login_required(login_url='login')
 def dashboard(request):
     return render(request, 'accounts/dashboard/dashboard.html')
 
+@login_required(login_url='login')
 def my_orders(request):
     orders = Order.objects.filter(is_ordered=True, user=request.user).order_by('-created')
     context = {'orders': orders}
     return render(request, 'accounts/dashboard/my_orders.html', context)
 
+@login_required(login_url='login')
 def order_details(request, order_number):
     order = Order.objects.get(is_ordered=True, user=request.user, order_number=order_number)
     order_product = OrderProduct.objects.filter(order=order, ordered=True)
@@ -220,6 +223,7 @@ def order_details(request, order_number):
     context = {'order': order, 'order_product': order_product}
     return render(request, 'accounts/dashboard/order_details.html', context)
 
+@login_required(login_url='login')
 def edit_profile(request):
     user = request.user
     
@@ -231,4 +235,29 @@ def edit_profile(request):
     else:
         form = ProfileEditForm(instance=user)
 
-    return render(request, 'accounts/edit_profile.html', {'user': user, 'form': form})
+    return render(request, 'accounts/dashboard/edit_profile.html', {'user': user, 'form': form})
+
+@login_required(login_url='login')
+def change_password(request):
+    if request.method == "POST":
+        current_password = request.POST['current_password']
+        new_password = request.POST['new_password']
+        confirm_password = request.POST['confirm_password']
+
+        if new_password == confirm_password:
+            if len(new_password) > 5:
+                user=request.user
+                if user.check_password(current_password):
+                    user.set_password(new_password)
+                    user.save()
+                    messages.success(request, "Password changed successfully!")
+                    return redirect('dashboard')
+                else:
+                    messages.error(request, "Wrong current password!")
+            else:
+                messages.warning(request, "Password should be at least 6 characters!")
+        else:
+            messages.error(request, "New password doesn't match!")
+            return redirect('change_password')
+
+    return render(request, 'accounts/dashboard/change_password.html')
