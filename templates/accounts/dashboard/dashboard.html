@@ -16,11 +16,17 @@
             </header>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-lg-8">
                         
                     </div>
-                    <div class="col-md-4">
-                        
+                    <div class="col-lg-4">
+                        <div class="card p-3">
+                            <div class="d-flex align-items-center flex-column">
+                                <img class="rounded-circle me-2 mb-3 img-thumbnail" src="{{user.profile_picture.url}}" alt="Profile Picture" width="75">
+                                <p class="d-flex align-items-center"><i class="fa-solid fa-envelope me-1"></i>{{request.user.email}}</p>
+                                <p>{{request.user.phone_number}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div> <!-- row.// -->
             </div> <!-- card-body .// -->
