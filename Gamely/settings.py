@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'carts.apps.CartsConfig',
     'orders.apps.OrdersConfig',
+    # ...
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -143,7 +145,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / 'static'
 
 # Media files configuration
-MEDIA_URL = '/images/'
+MEDIA_URL = 'gamely/images/'
 MEDIA_ROOT = BASE_DIR / "images"
 
 # Default primary key field type
@@ -161,3 +163,11 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
 # STRIPE SETTINGS
 STRIPE_PRIVATE_KEY = config('STRIPE_PRIVATE_KEY')
+
+# CLOUDINARY STORAGE CONFIGURATION
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUD_NAME'),
+    'API_KEY': config('API_KEY'),
+    'API_SECRET': config('API_SECRET')
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
