@@ -12,6 +12,5 @@ def home(request):
     context = {'products': products, 'categories': categories}
     return render(request, 'index.html', context)
 
-def category(request):
-    context = {}
-    return render(request, 'store/category.html', context)
+def about_developer(request):
+    return HttpResponse('Hello my name is Maruf Hossain & I\'m the developer of this website.')

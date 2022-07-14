@@ -8,6 +8,6 @@
         <a class="list-group-item {% if '/delete_account/' in request.path %}active{%  endif %}" href="{% url 'delete_account' %}"> Delete Account </a>
     </ul>
     <br>
-    <a class="btn btn-light btn-block" href="{% url 'logout' %}" onclick="return confirm('Are you sure want to logout?')"> <i class="fa fa-power-off"></i> <span class="text">Log out</span> </a> 
+    <a class="btn btn-light btn-block mb-4 mb-md-0" href="{% url 'logout' %}" onclick="return confirm('Are you sure want to logout?')"> <i class="fa fa-power-off"></i> <span class="text">Log out</span> </a> 
     <!--   SIDEBAR .//END   -->
 </aside>

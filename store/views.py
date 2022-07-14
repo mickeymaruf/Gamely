@@ -26,6 +26,10 @@ def category_links(request):
     category_links = Category.objects.all()
     return {'category_links': category_links}
 
+def category(request):
+    context = {}
+    return render(request, 'store/category.html', context)
+
 def single_product(request, category_slug, product_slug):
     try:
         product = get_object_or_404(Product, category__slug=category_slug, slug=product_slug)
