@@ -58,15 +58,15 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # ...
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    # ...
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # whitenoise, sessiontimeout
 ]
 
 ROOT_URLCONF = 'Gamely.urls'
@@ -171,3 +171,8 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': config('API_SECRET')
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# SESSION_TIMEOUT_CONFIG
+SESSION_EXPIRE_SECONDS = 86400  # 24 hour
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+SESSION_TIMEOUT_REDIRECT = 'login'

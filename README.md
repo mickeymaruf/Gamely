@@ -23,5 +23,8 @@ EMAIL_HOST_PASSWORD=''
 EMAIL_USE_TLS=''
 EMAIL_USE_TLS=''
 STRIPE_PRIVATE_KEY=''
+CLOUD_NAME=''
+API_KEY=''
+API_SECRET=''
 ```
 Visit https://djecrety.ir/ to GENERATE DJANGO SECRET KEY and put it in the SECRET_KEY value.
