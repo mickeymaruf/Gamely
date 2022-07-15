@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="section-conten padding-y bg">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8 mx-auto">
+                <div class="card">
+                    <header class="card-header d-flex justify-content-between">
+                        <strong class="d-inline-block mr-3">About Project Gamely</strong>
+                        <div class="dev_social_icon">
+                            <a target="_blank" href="https://github.com/mickeymaruf/Gamely"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </header>
+                    <div class="card-body">
+                        <div class="row d-flex align-items-center justify-content-evenly">
+                            <div class="col-md-2 d-flex justify-content-evenly">
+                                <a id="logo" class="navbar-brand fw-bold text-uppercase" href="{% url 'home' %}">Gamely</a>
+                            </div>
+                            <div class="col-md-10 about-text">
+                                <p>- This is a Complete E-commerce Game Store where you can buy games.</p>
+                                <p>- Technologies used: Django/Python, Bootstrap.</p>
+                                <p>- Secure Payment integration with Stripe API.</p>
+                                <p>- Visit the documentation here. <a target="_blank" href="https://github.com/mickeymaruf/Gamely">Github</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

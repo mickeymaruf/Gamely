@@ -29,6 +29,7 @@ urlpatterns = [
     path('orders/', include('orders.urls')),
 
     path('about-developer/', views.about_developer, name="about_developer"),
+    path('about-website/', views.about_website, name="about_website"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

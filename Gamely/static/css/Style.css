@@ -318,3 +318,14 @@ label:hover~input:checked~label {
 }
 
 /* review end */
+
+.dev_social_icon i{
+  font-size: 1.2rem;
+  margin-left: 0.2rem;
+  margin-top: 0.2rem;
+  color: #000;
+}
+
+.about-text p{
+  margin: 0.3rem 0;
+}

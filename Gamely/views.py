@@ -13,4 +13,7 @@ def home(request):
     return render(request, 'index.html', context)
 
 def about_developer(request):
-    return HttpResponse('Hello my name is Maruf Hossain & I\'m the developer of this website.')
+    return render(request, 'others/about_developer.html')
+
+def about_website(request):
+    return render(request, 'others/about_website.html')

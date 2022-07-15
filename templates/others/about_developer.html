@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="section-conten padding-y bg">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8 mx-auto">
+                <div class="card">
+                    <header class="card-header d-flex justify-content-between">
+                        <strong class="d-inline-block mr-3">About the Developer</strong>
+                        <div class="dev_social_icon">
+                            <a target="_blank" href="https://github.com/mickeymaruf"><i class="fa-brands fa-github"></i></a>
+                            <a target="_blank" href="https://www.linkedin.com/in/mickeymaruf/"><i class="fa-brands fa-linkedin"></i></a>
+                            <a target="_blank" href="https://www.facebook.com/mickeymaruf"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </header>
+                    <div class="card-body">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-md-2 d-flex justify-content-evenly">
+                                <img class="img-thumbnail rounded-circle" src="{{user.profile_pictureUrl}}" alt="Profile Picture" width="110">
+                            </div>
+                            <div class="col-md-10 about-text">
+                                <p>- 👋 Hi there,</p>
+                                <p>- 🙃 I’m Md Maruf Hossain.</p>
+                                <p>- 👀 I’m a Software Developer from Bangladesh.</p>
+                                <p>- 🧠 I'm a Tech & Programming Enthusiast & expert in Python, Django.</p>
+                                <p>- 📫 Well you can send messages to me at <span class="text-primary">maruf.h4x@gmail.com</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
