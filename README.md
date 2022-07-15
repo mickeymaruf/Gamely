@@ -1,5 +1,11 @@
-# Panda-Bazar
+# Gamely
 An E-commerce Game Store
+
+### Live: [https://gameely.herokuapp.com/](https://gameely.herokuapp.com/)
+
+<p align="center">
+  <img src="https://github.com/mickeymaruf/projects-demo-images/blob/main/gamely/gamely.png">
+</p>
 
 ## Installation
 1. Copy files to your server and configure webserver
