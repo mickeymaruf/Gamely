@@ -11,19 +11,18 @@
         <main class="col-md-9">
             <article class="card">
             <header class="card-header d-flex justify-content-between">
-                <strong class="d-inline-block mr-3">Account Deletation</strong>
+                <strong class="d-inline-block mr-3">Change your picture</strong>
             </header>
             <div class="card-body">
-                <h4 class="mb-2">Confrim password to delete this account!</h4><hr>
-                <form action="" method="POST">
-                    {% csrf_token %}
-                        <div class="row">
-                            <div>
-                                <label>Enter password</label>
-                                <input type="password" class="form-control" name="password" required>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-danger mt-3" onclick="return confirm('Are you sure want delete this account?')">Delete Account</button>
+               <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div>
+                        <img class="img-thumbnail rounded-circle me-2 mb-3" src="{{user.profile_pictureUrl}}" alt="Profile Picture" width="110">
+                        <br>
+                        <input type="file" name="profile_picture" required>
+                    </div>
+
+                    <button class="btn btn-success mt-3" type="submit">Submit</button>
                 </form>
 
             </div> <!-- card-body .// -->

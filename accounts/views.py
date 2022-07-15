@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.files.storage import FileSystemStorage
 
 from carts.models import Cart, CartItem
 from .decorators import unauthenticated_user
@@ -181,33 +182,35 @@ def reset_password_validate(request, uid, token):
         return redirect('login')
 
 def reset_password(request):
-    if request.method == "POST":
-        password = request.POST['password']
-        confirm_password = request.POST['confirm_password']
-        if password == confirm_password:
-            if len(password) > 5:
-                uid = request.session.get('uid')
-                user = Account.objects.get(pk=uid)
-                print(user)
-                user.set_password(password)
-                user.save()
-                messages.success(request, "Password reset successful!")
-                return redirect('login')
+    # check if uid exist in the session or not
+    session = request.session.get('uid')
+    if session is not None:
+
+        if request.method == "POST":
+            password = request.POST['password']
+            confirm_password = request.POST['confirm_password']
+            if password == confirm_password:
+                if len(password) > 5:
+                    uid = request.session.get('uid')
+                    user = Account.objects.get(pk=uid)
+                    print(user)
+                    user.set_password(password)
+                    user.save()
+                    messages.success(request, "Password reset successful!")
+                    return redirect('login')
+                else:
+                    messages.error(request, "Password should be at least 6 character!")
+                    return redirect('reset_password')
             else:
-                messages.error(request, "Password should be at least 6 character!")
+                messages.error(request, "Password doesn't match!")
                 return redirect('reset_password')
-        else:
-            messages.error(request, "Password doesn't match!")
-            return redirect('reset_password')
 
-    return render(request, 'accounts/reset_password.html')
-
+        return render(request, 'accounts/reset_password.html')
+        
+    else:
+        return redirect('login')
 
 # DASHBOARD FUNCTIONALITY
-
-@login_required(login_url='login')
-def dashboard(request):
-    return render(request, 'accounts/dashboard/dashboard.html')
 
 @login_required(login_url='login')
 def my_orders(request):
@@ -228,7 +231,7 @@ def edit_profile(request):
     user = request.user
     
     if request.method == "POST":
-        form = ProfileEditForm(request.POST, request.FILES, instance=user)
+        form = ProfileEditForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
             return redirect('edit_profile')
@@ -236,6 +239,18 @@ def edit_profile(request):
         form = ProfileEditForm(instance=user)
 
     return render(request, 'accounts/dashboard/edit_profile.html', {'user': user, 'form': form})
+
+def change_profile_picture(request):
+    try:
+        if request.method == "POST" and request.FILES['profile_picture']:
+            profile_picture = request.FILES['profile_picture']
+            request.user.profile_picture = profile_picture
+            request.user.save()
+            messages.success(request, "Profile picture updated!")
+    except:
+        messages.error(request, "Picture not found!")
+
+    return render(request, 'accounts/dashboard/change_profile_picture.html')
 
 @login_required(login_url='login')
 def change_password(request):

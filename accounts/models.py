@@ -76,3 +76,13 @@ class Account(AbstractBaseUser):
 
     def name(self):
         return f"{self.first_name} {self.last_name}"
+
+    @property
+    def profile_pictureUrl(self):
+        try:
+            if len(self.profile_picture) > 0:
+                url = self.profile_picture.url
+        except:
+            self.profile_picture = 'default-user_xsumtz.png'
+            url =  self.profile_picture.url
+        return url

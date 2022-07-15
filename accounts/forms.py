@@ -31,7 +31,7 @@ class AccountForm(forms.ModelForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Account
-        fields = ['first_name', 'last_name', 'username', 'email', 'phone_number', 'profile_picture']
+        fields = ['first_name', 'last_name', 'username', 'email', 'phone_number']
 
     def __init__(self, *args, **kwargs):
         super(ProfileEditForm, self).__init__(*args, **kwargs)
@@ -40,5 +40,3 @@ class ProfileEditForm(forms.ModelForm):
             # placeholder
             field_name = field.replace("_", " ").title()
             self.fields[field].widget.attrs.update({'placeholder': f"Enter {field_name}"})
-        self.fields['profile_picture'].widget.attrs.update({'class': 'd-block'})
-        self.fields['profile_picture'].widget.attrs.update({'required': 'required'})

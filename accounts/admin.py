@@ -8,7 +8,7 @@ from django.utils.html import format_html
 
 class AccountAdmin(UserAdmin):
     def thumbnail(self):
-        return format_html('<img src="{}" width="30" style="border-radius:50%;">'.format(self.profile_picture.url))
+        return format_html('<img src="{}" width="30" style="border-radius:50%;">'.format(self.profile_pictureUrl))
     list_display = (thumbnail,'email', 'first_name', 'last_name', 'username', 'last_login', 'date_joined')
     list_display_links = ('email', 'first_name', 'last_name', 'username')
     list_filter = ('is_admin',)

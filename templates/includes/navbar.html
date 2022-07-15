@@ -12,10 +12,10 @@
       </form>
       <!-- search bar -->
       
-      <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center justify-content-center">
         {% if user.is_authenticated %}
         <div class="btn-group ms-3" style="cursor: pointer;">
-          <a href="{% url 'dashboard' %}" class="btn btn-outline-success">
+          <a href="{% url 'my_orders' %}" class="btn btn-outline-success">
             Dashboard
           </a>
         </div>
