@@ -7,6 +7,8 @@ An E-commerce Game Store
   <img src="https://github.com/mickeymaruf/projects-demo-images/blob/main/gamely/gamely.png">
 </p>
 
+## Features
+
 ## Installation
 1. Copy files to your server and configure webserver
 2. Install dependencies running the below from CLI (main project folder):

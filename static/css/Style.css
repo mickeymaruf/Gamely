@@ -228,12 +228,6 @@ ul li {
   }
 }
 
-@media screen and (max-width:500px) {
-  .banner-image {
-    height: 190px;
-  }
-}
-
 /* showcase end */
 /* category */
 
