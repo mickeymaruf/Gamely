@@ -2,3 +2,4 @@ env/
 .env
 note.txt
 static/
+data.json
